@@ -1,0 +1,3 @@
+### GET Testimonials
+
+GET http://localhost:3333/api/testimonials
