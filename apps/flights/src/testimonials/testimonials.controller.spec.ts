@@ -18,6 +18,7 @@ describe('TestimonialsController', () => {
     expect(controller).toBeDefined();
   });
   it('should return an array of testimonials', async () => {
+    await controller.createTestimonial({ name: 'John', comment: 'Great!' });
     const testimonials = await controller.getTestimonials();
     expect(testimonials).toEqual(
       expect.arrayContaining([

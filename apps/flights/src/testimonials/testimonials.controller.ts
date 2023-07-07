@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
-import { TestimonialsService } from './testimonials.service';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Testimonial, TestimonialsService } from './testimonials.service';
 
 @Controller('testimonials')
 export class TestimonialsController {
@@ -8,5 +8,11 @@ export class TestimonialsController {
   @Get()
   async getTestimonials() {
     return this.testimonialsService.getAll();
+  }
+
+  // TODO: Implement AuthGuard
+  @Post()
+  async createTestimonial(@Body() data: Testimonial) {
+    return this.testimonialsService.create(data);
   }
 }

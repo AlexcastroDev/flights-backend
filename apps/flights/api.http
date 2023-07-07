@@ -1,3 +1,12 @@
 ### GET Testimonials
 
 GET http://localhost:3333/api/testimonials
+
+### Create a new Testimonial
+
+POST http://localhost:3333/api/testimonials
+
+{
+    "name": "Alekinho 88",
+    "content": "Alekinho88 es el mejor jugador de la historia del fútbol."
+}
