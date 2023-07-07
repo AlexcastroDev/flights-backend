@@ -1,25 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { faker } from '@faker-js/faker';
+import { PrismaService } from '../prisma/prisma.service';
 
-// TODO: Move to Contracts package
 export interface Testimonial {
-  name: string;
   comment: string;
 }
 
-const testimonials = [];
-
-// TODO: Implement Repository to move between
-// in-memory and database storage
 @Injectable()
 export class TestimonialsService {
-  getAll() {
-    return testimonials;
+  constructor(private prisma: PrismaService) {}
+  async getAll() {
+    return await this.prisma.testimonials.findMany();
   }
 
-  create(data: Testimonial) {
-    testimonials.push({ ...data, picture: faker.internet.avatar() });
-
-    return data;
+  async create(data: Testimonial) {
+    return await this.prisma.testimonials.create({
+      data: {
+        comment: data.comment,
+      },
+    });
   }
 }

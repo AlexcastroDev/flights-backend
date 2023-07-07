@@ -10,7 +10,6 @@ export class TestimonialsController {
     return this.testimonialsService.getAll();
   }
 
-  // TODO: Implement AuthGuard
   @Post()
   async createTestimonial(@Body() data: Testimonial) {
     return this.testimonialsService.create(data);
