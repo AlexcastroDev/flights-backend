@@ -7,7 +7,7 @@
     "clear:db": "rimraf prisma/dev.db",
     "test": "npm run pretest && nx test flights",
     "pretest": "npm run clear:db && npm run migrate",
-    "seed": "ts-node ./prisma/seed.ts",
+    "seed": "ts-node ./prisma/seeds/index.ts",
     "migrate": "prisma migrate dev"
   },
   "private": true,
