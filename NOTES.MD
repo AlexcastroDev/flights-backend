@@ -1,3 +1,11 @@
+# Update the nx workspace
+
+npx nx migrate 16.5.0
+
+# Migrate NX
+
+yarn nx migrate --run-migrations
+
 # Creating the core library
 
-npx nx g @nrwl/node:lib core
+npx nx g @nx/node:lib core
