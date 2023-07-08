@@ -38,6 +38,7 @@ describe('TestimonialsService', () => {
           comment: expect.any(String),
           created_at: expect.any(Date),
           updated_at: expect.any(Date),
+          user_id: expect.any(Number),
         }),
       ])
     );

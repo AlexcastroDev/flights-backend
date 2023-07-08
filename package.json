@@ -5,8 +5,9 @@
   "scripts": {
     "start": "nx serve flights",
     "clear:db": "rimraf prisma/dev.db",
-    "test": "npm run pretest && nx test flights",
-    "pretest": "npm run clear:db && npm run migrate",
+    "test": "nx test flights",
+    "test:ci": "npm run pretest && nx test flights",
+    "pretest": "npm run clear:db && npm run migrate && npm run seed",
     "seed": "ts-node ./prisma/seeds/index.ts",
     "migrate": "prisma migrate dev"
   },
@@ -16,6 +17,8 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@prisma/client": "^4.16.2",
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
     "tslib": "^2.3.0"

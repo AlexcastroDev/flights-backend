@@ -16,6 +16,7 @@ export class TestimonialsService {
     return await this.prisma.testimonials.create({
       data: {
         comment: data.comment,
+        user_id: 1,
       },
     });
   }
