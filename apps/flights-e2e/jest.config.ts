@@ -1,8 +1,8 @@
 /* eslint-disable */
 export default {
-  displayName: 'flights',
-  preset: '../../jest.preset.js',
-  globals: {},
+  displayName: 'flights-e2e-e2e',
+  preset: '../..//jest.preset.js',
+  setupFiles: ['<rootDir>/src/test-setup.ts'],
   testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]s$': [
@@ -13,5 +13,5 @@ export default {
     ],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/flights',
+  coverageDirectory: '../..//coverage/flights-e2e-e2e',
 };
