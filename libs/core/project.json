@@ -17,9 +17,38 @@
       "options": {
         "jestConfig": "libs/core/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "prisma": {
+      "command": "prisma",
+      "options": {
+        "cwd": "libs/core"
+      }
+    },
+    "orm:generate": {
+      "command": "prisma generate",
+      "options": {
+        "cwd": "libs/core"
+      }
+    },
+    "migrate:test": {
+      "command": "prisma migrate reset --force && prisma migrate dev --name init",
+      "options": {
+        "cwd": "libs/core"
+      }
+    },
+    "seed": {
+      "command": "ts-node --transpile-only ./prisma/seeds/index.ts",
+      "options": {
+        "cwd": "libs/core"
       }
     }
   },
-  "tags": [],
-  "implicitDependencies": ["core"]
+  "tags": []
 }

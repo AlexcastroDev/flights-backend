@@ -4,10 +4,9 @@ import usersSeed from './users';
 const prisma = new PrismaClient();
 
 async function main() {
-  const priorizedSeeds = Promise.all([usersSeed(prisma)]);
+  await usersSeed(prisma);
   const seeds = Promise.all([testimonialsSeed(prisma)]);
 
-  await priorizedSeeds;
   await seeds;
 }
 

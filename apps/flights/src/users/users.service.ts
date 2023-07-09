@@ -1,23 +1,35 @@
+import { PasswordManager } from '@flights/core';
 import { Injectable } from '@nestjs/common';
+import { Users } from '@prisma/client';
+import { PrismaService } from '../prisma/prisma.service';
 
-export type User = any;
+interface User {
+  name: string;
+  email: string;
+  password: string;
+}
 
 @Injectable()
 export class UsersService {
-  private readonly users = [
-    {
-      userId: 1,
-      username: 'Alex',
-      password: '$2b$10$H75JB2Q/Y2sKfEvCBWULK.O/loX41gJuXeYDxu/FZJrQMlAJzDRo.',
-    },
-    {
-      userId: 2,
-      username: 'Jane Doe',
-      password: 'aaaaaaaa',
-    },
-  ];
+  constructor(private appService: PrismaService) {}
+  async findOne(email: string): Promise<Users | undefined> {
+    return this.appService.users.findUnique({
+      where: {
+        email,
+      },
+    });
+  }
 
-  async findOne(username: string): Promise<User | undefined> {
-    return this.users.find((user) => user.username === username);
+  async create(user: User): Promise<Users> {
+    const { hash, salt } = new PasswordManager().hashPassword(user.password);
+
+    return this.appService.users.create({
+      data: {
+        name: user.name,
+        email: user.email,
+        password: hash,
+        salt,
+      },
+    });
   }
 }

@@ -1,13 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { UsersService } from '../users/users.service';
+import { PrismaService } from '../prisma/prisma.service';
 
 describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [AuthService, UsersService],
+      providers: [AuthService, UsersService, PrismaService],
     }).compile();
 
     service = module.get<AuthService>(AuthService);
@@ -17,6 +18,6 @@ describe('AuthService', () => {
     expect(service).toBeDefined();
   });
   it('should validate password', () => {
-    expect(service.signIn('Alex', '12345678Oi')).toBeDefined();
+    expect(service.signIn('test@test.com', '12345678Oi')).toBeDefined();
   });
 });

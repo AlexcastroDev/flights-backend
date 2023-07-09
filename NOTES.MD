@@ -6,6 +6,10 @@ npx nx migrate 16.5.0
 
 yarn nx migrate --run-migrations
 
+# Check repair
+
+npx nx repair
+
 # Creating the core library
 
 npx nx g @nx/node:lib core

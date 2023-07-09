@@ -1,5 +1,5 @@
 import * as crypto from 'crypto';
-import PasswordManager from './PasswordManager';
+import PasswordManager from '.';
 
 // Mocking crypto module
 jest.mock('crypto', () => ({
@@ -8,7 +8,7 @@ jest.mock('crypto', () => ({
 }));
 
 describe('PasswordManager', () => {
-  let passwordManager;
+  let passwordManager: PasswordManager;
 
   beforeEach(() => {
     passwordManager = new PasswordManager();
