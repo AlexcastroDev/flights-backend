@@ -24,3 +24,9 @@ https://trello.com/b/OnuqDQ3A/alurachallengebackend7-semana-1
 - [ ] Implement a Docker
 - [ ] Deploy do Azure
 - [ ] Implment of Upload of picture on Azure Blob Storage
+
+## References
+
+- Cannot use 2 databases in Prisma yet:
+  https://github.com/prisma/prisma/issues/2443
+  https://github.com/prisma/prisma/issues/11129
