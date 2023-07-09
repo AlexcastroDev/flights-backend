@@ -1,12 +1,30 @@
+@bearerToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJzdWIiOjEsIm5hbWUiOiJTYW1hcmEyMiIsImlhdCI6MTY4ODkxODYwNywiZXhwIjoxNjg4OTE4NjY3fQ.MTVyB0Ph2wPbMUgECyXhMWc5TZoAEYxBZokcYUIB48w
+
+
 ### GET Testimonials
 
 GET http://localhost:3333/api/testimonials
 
 ### Create a new Testimonial
 
-POST http://localhost:3333/api/testimonials
+POST http://localhost:3333/api/testimonials HTTP/1.1
+content-type: application/json
 
 {
     "name": "Alekinho 88",
     "content": "Alekinho88 es el mejor jugador de la historia del fútbol."
 }
+
+
+### SignIn
+POST http://localhost:3333/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "12345678Oi"
+}
+
+### Get logged user
+GET http://localhost:3333/api/auth/me
+Authorization: Bearer {{bearerToken}}

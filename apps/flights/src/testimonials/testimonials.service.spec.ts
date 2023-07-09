@@ -19,6 +19,7 @@ describe('TestimonialsService', () => {
   it('Should create a new testimonial', async () => {
     const testimonial = await service.create({
       comment: 'test',
+      user_id: 1,
     });
     expect(testimonial).toEqual(
       expect.objectContaining({
@@ -26,6 +27,7 @@ describe('TestimonialsService', () => {
         comment: expect.any(String),
         created_at: expect.any(Date),
         updated_at: expect.any(Date),
+        user_id: expect.any(Number),
       })
     );
   });
@@ -38,6 +40,7 @@ describe('TestimonialsService', () => {
           comment: expect.any(String),
           created_at: expect.any(Date),
           updated_at: expect.any(Date),
+          user_id: expect.any(Number),
         }),
       ])
     );

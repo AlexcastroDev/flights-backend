@@ -3,6 +3,7 @@ import { PrismaService } from '../prisma/prisma.service';
 
 export interface Testimonial {
   comment: string;
+  user_id: number;
 }
 
 @Injectable()
@@ -16,6 +17,7 @@ export class TestimonialsService {
     return await this.prisma.testimonials.create({
       data: {
         comment: data.comment,
+        user_id: data.user_id,
       },
     });
   }
