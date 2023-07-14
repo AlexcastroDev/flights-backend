@@ -62,20 +62,15 @@ describe('TestimonialsService', () => {
   });
   it('should delete a testimonial', async () => {
     const testimonials = await service.delete(1);
-    console.log(
-      '🚀 ~ file: testimonials.service.spec.ts:65 ~ it ~ testimonials:',
-      testimonials
-    );
+
     expect(testimonials).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          id: expect.any(Number),
-          comment: expect.any(String),
-          created_at: expect.any(Date),
-          updated_at: expect.any(Date),
-          user_id: expect.any(Number),
-        }),
-      ])
+      expect.objectContaining({
+        id: expect.any(Number),
+        comment: expect.any(String),
+        created_at: expect.any(Date),
+        updated_at: expect.any(Date),
+        user_id: expect.any(Number),
+      })
     );
   });
 });

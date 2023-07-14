@@ -15,16 +15,20 @@ https://trello.com/b/OnuqDQ3A/alurachallengebackend7-semana-1
 - [x] in-memory and database storage
 - [x] Unit tests
 - [x] Implement a Swagger
-- [ ] API of create a comment
+- [x] API of create a comment
+- [x] Implement a Docker
+- [x] Implement a Docker Compose
+- [ ] Implement middleware to inject the user on request
+- [ ] Implement errors handler cases on testimonial create, update and delete
 - [ ] Implement a Auth Exception Handler
 - [ ] Implement a Global Exception Handler
 - [ ] Implement a Logger
 - [ ] Implement a Cache ( redis )
 - [ ] Implement Roles (maybe ?)
 - [ ] Implement a CI/CD
-- [ ] Implement a Docker
 - [ ] Deploy do Azure
 - [ ] Implement of Upload of user picture on Azure Blob Storage
+- [ ] Improving testing, not need to repeat the same code
 
 ## References
 
