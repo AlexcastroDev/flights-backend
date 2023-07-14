@@ -1,4 +1,5 @@
 import api from '../api';
+import { faker } from '@faker-js/faker';
 
 describe('update request', () => {
   it('Should update a testimonial', async () => {
@@ -7,11 +8,18 @@ describe('update request', () => {
       password: '12345678Oi',
     });
 
-    const { data: resultCreate } = await api.delete('/api/testimonials/2', {
-      headers: {
-        Authorization: `Bearer ${result.data.access_token}`,
+    const { data: resultCreate } = await api.post(
+      '/api/testimonials',
+      {
+        user_id: 1,
+        comment: faker.lorem.sentence().substring(0, 150),
       },
-    });
+      {
+        headers: {
+          Authorization: `Bearer ${result.data.access_token}`,
+        },
+      }
+    );
 
     expect(resultCreate.id).toBeDefined();
 

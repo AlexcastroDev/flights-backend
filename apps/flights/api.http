@@ -30,4 +30,4 @@ GET http://localhost:3333/api/auth/me
 Authorization: Bearer {{bearerToken}}
 
 ### Delete
-DELETE http://localhost:3333/api/testimonials/20
+DELETE http://localhost:3333/api/testimonials/27
