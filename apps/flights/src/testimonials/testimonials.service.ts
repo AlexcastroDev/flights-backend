@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 
 export interface Testimonial {
@@ -20,5 +20,28 @@ export class TestimonialsService {
         user_id: data.user_id,
       },
     });
+  }
+
+  async update(id: number, data: Testimonial) {
+    return await this.prisma.testimonials.update({
+      where: {
+        id,
+      },
+      data: {
+        comment: data.comment,
+        user_id: data.user_id,
+      },
+    });
+  }
+  async delete(id: number) {
+    try {
+      return await this.prisma.testimonials.delete({
+        where: {
+          id,
+        },
+      });
+    } catch {
+      throw new NotFoundException();
+    }
   }
 }
