@@ -6,7 +6,6 @@ describe('SignIn', () => {
       email: 'test@test.com',
       password: '12345678Oi',
     });
-    console.log('🚀 ~ file: signin-e2e.spec.ts:9 ~ it ~ data:', data);
 
     expect(data).toEqual(
       expect.objectContaining({

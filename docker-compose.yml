@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}"]
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+  api_test:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    build:
+      dockerfile: Dockerfile
+      context: .
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    volumes:
+      - /usr/src/app/node_modules
+    command: npm run test:ci
+  api:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    build:
+      dockerfile: Dockerfile
+      context: .
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+
+volumes:
+  db-postgres:

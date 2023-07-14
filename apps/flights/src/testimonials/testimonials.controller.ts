@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Req,
+  Res,
+} from '@nestjs/common';
 import { Testimonial, TestimonialsService } from './testimonials.service';
 
 @Controller('testimonials')
@@ -13,5 +23,15 @@ export class TestimonialsController {
   @Post()
   async createTestimonial(@Body() data: Testimonial) {
     return this.testimonialsService.create(data);
+  }
+
+  @Put(':id')
+  async updateTestimonial(@Param('id') id: string, @Body() data: Testimonial) {
+    return this.testimonialsService.update(Number(id), data);
+  }
+
+  @Delete(':id')
+  async deleteTestimonial(@Param('id') id: string) {
+    return this.testimonialsService.delete(Number(id));
   }
 }

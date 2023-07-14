@@ -1,4 +1,4 @@
-@bearerToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJzdWIiOjEsIm5hbWUiOiJTYW1hcmEyMiIsImlhdCI6MTY4ODkxODYwNywiZXhwIjoxNjg4OTE4NjY3fQ.MTVyB0Ph2wPbMUgECyXhMWc5TZoAEYxBZokcYUIB48w
+@bearerToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJzdWIiOjEsIm5hbWUiOiJFbG1vX0JvcmVyIiwiaWF0IjoxNjg5MzY1MjIxLCJleHAiOjE2ODkzNjUyODF9.MehLAoJocpOk4wf6rRbImU6jphM1EcPH6CscObyEVBs
 
 
 ### GET Testimonials
@@ -11,8 +11,8 @@ POST http://localhost:3333/api/testimonials HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Alekinho 88",
-    "content": "Alekinho88 es el mejor jugador de la historia del fútbol."
+    "comment": "Alekinho88 es el mejor jugador de la historia del fútbol.",
+    "user_id": 1
 }
 
 
@@ -28,3 +28,6 @@ content-type: application/json
 ### Get logged user
 GET http://localhost:3333/api/auth/me
 Authorization: Bearer {{bearerToken}}
+
+### Delete
+DELETE http://localhost:3333/api/testimonials/20

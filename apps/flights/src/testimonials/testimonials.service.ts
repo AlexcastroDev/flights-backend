@@ -21,4 +21,23 @@ export class TestimonialsService {
       },
     });
   }
+
+  async update(id: number, data: Testimonial) {
+    return await this.prisma.testimonials.update({
+      where: {
+        id,
+      },
+      data: {
+        comment: data.comment,
+        user_id: data.user_id,
+      },
+    });
+  }
+  async delete(id: number) {
+    return await this.prisma.testimonials.delete({
+      where: {
+        id,
+      },
+    });
+  }
 }
