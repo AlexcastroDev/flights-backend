@@ -2,13 +2,14 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TestimonialsController } from './testimonials.controller';
 import { TestimonialsService } from './testimonials.service';
 import { PrismaService } from '../prisma/prisma.service';
-import { faker } from '@faker-js/faker';
+import { AuthModule } from '../auth/auth.module';
 
 describe('TestimonialsController', () => {
   let controller: TestimonialsController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [AuthModule],
       providers: [TestimonialsService, PrismaService],
       controllers: [TestimonialsController],
     }).compile();
