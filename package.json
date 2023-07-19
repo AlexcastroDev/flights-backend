@@ -4,11 +4,14 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve flights",
+    "start:production": "node dist/apps/flights/main.js",
+    "build": "nx build flights --prod",
     "test": "nx test flights",
     "test:core": "nx test core",
     "test:ci": "npm run prepare:test && nx test flights",
     "test:e2e": "nx test flights-e2e",
     "prepare:test": "npm run migrate:test && npm run seed",
+    "generate": "nx prisma core generate",
     "seed": "nx seed core",
     "migrate": "nx orm:migrate core",
     "migrate:test": "nx orm:migrate:test core"

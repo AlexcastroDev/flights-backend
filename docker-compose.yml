@@ -23,26 +23,43 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
+      target: testing
     env_file:
       - .env
-    ports:
-      - 3000:3000
     volumes:
-      - /usr/src/app/node_modules
+      - .:/usr/src/app
+      - shared_modules:/usr/src/app/node_modules
     command: npm run test:ci
-  api:
+  api_development:
     depends_on:
       postgres:
         condition: service_healthy
     build:
       dockerfile: Dockerfile
       context: .
+      target: development
     env_file:
       - .env
     ports:
-      - 3000:3000
+      - 3000:3333
     volumes:
       - .:/usr/src/app
-
+      - shared_modules:/usr/src/app/node_modules
+    command: yarn start
+  api:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    build:
+      dockerfile: Dockerfile.prod
+      context: .
+    volumes:
+      - /usr/src/app/node_modules
+    env_file:
+      - .env
+    ports:
+      - 3000:3333
+    command: yarn start:production
 volumes:
   db-postgres:
+  shared_modules:

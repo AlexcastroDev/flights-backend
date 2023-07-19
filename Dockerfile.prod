@@ -1,0 +1,27 @@
+FROM node:18 as base
+
+WORKDIR /usr/src/app
+
+COPY ./package*.json .
+
+RUN yarn --no-optional
+
+COPY . .
+
+RUN yarn generate
+
+RUN yarn build
+
+FROM node:18
+
+ENV NODE_ENV production
+
+WORKDIR /usr/src/app
+
+COPY ./package*.json .
+
+COPY --from=base /usr/src/app ./
+
+EXPOSE 3333
+
+CMD [ "yarn", "start"]

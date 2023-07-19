@@ -4,6 +4,31 @@ An Alura Challenge #7 project.
 
 https://trello.com/b/OnuqDQ3A/alurachallengebackend7-semana-1
 
+## How to run
+
+### Docker
+
+```bash
+docker-compose up -d api
+```
+
+### Local
+
+```bash
+yarn
+```
+
+If you want to install the dependencies with docker, run:
+
+
+```bash
+chmod +x ./scripts/install.sh
+````
+
+```bash
+docker run -it --rm -v "$(pwd)":/usr/src/app -w /usr/src/app node:18 npm install
+````
+
 # TODO:
 
 - [x] API of list flights
