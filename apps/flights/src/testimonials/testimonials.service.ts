@@ -33,11 +33,12 @@ export class TestimonialsService {
       },
     });
   }
-  async delete(id: number) {
+  async delete(id: number, user_id: number) {
     try {
-      return await this.prisma.testimonials.delete({
+      return await this.prisma.testimonials.deleteMany({
         where: {
           id,
+          user_id,
         },
       });
     } catch {

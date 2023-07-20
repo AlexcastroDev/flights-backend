@@ -1,23 +1,23 @@
-@bearerToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJzdWIiOjEsIm5hbWUiOiJFbG1vX0JvcmVyIiwiaWF0IjoxNjg5MzY1MjIxLCJleHAiOjE2ODkzNjUyODF9.MehLAoJocpOk4wf6rRbImU6jphM1EcPH6CscObyEVBs
-
+@bearerToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJzdWIiOjEsIm5hbWUiOiJKYW1hcmN1cy5PSGFyYTk0IiwiaWQiOjEsImlhdCI6MTY4OTg3MzE2MywiZXhwIjoxNjg5ODczMjIzfQ.CoQIENyd48BIsWyzFBrsrseOW19X0W_B3pdk9h5e-Mk
+@port = 3333
 
 ### GET Testimonials
 
-GET http://localhost:3333/api/testimonials
+GET http://localhost:{{port}}/api/testimonials
 
 ### Create a new Testimonial
 
-POST http://localhost:3333/api/testimonials HTTP/1.1
+POST http://localhost:{{port}}/api/testimonials HTTP/1.1
+Authorization: Bearer {{bearerToken}}
 content-type: application/json
 
 {
-    "comment": "Alekinho88 es el mejor jugador de la historia del fútbol.",
-    "user_id": 1
+    "comment": "Alekinho88 es el mejor jugador de la historia del fútbol."
 }
 
 
 ### SignIn
-POST http://localhost:3333/api/auth/login HTTP/1.1
+POST http://localhost:{{port}}/api/auth/login HTTP/1.1
 content-type: application/json
 
 {
@@ -26,8 +26,9 @@ content-type: application/json
 }
 
 ### Get logged user
-GET http://localhost:3333/api/auth/me
+GET http://localhost:{{port}}/api/auth/me
 Authorization: Bearer {{bearerToken}}
 
 ### Delete
-DELETE http://localhost:3333/api/testimonials/27
+DELETE http://localhost:{{port}}/api/testimonials/6
+Authorization: Bearer {{bearerToken}}

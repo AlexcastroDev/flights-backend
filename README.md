@@ -20,14 +20,13 @@ yarn
 
 If you want to install the dependencies with docker, run:
 
-
 ```bash
 chmod +x ./scripts/install.sh
-````
+```
 
 ```bash
 docker run -it --rm -v "$(pwd)":/usr/src/app -w /usr/src/app node:18 npm install
-````
+```
 
 # TODO:
 
@@ -36,16 +35,16 @@ docker run -it --rm -v "$(pwd)":/usr/src/app -w /usr/src/app node:18 npm install
 - [x] Unit tests
 - [x] Implement Prisma ORM
 - [x] Implement AuthGuard
-- [ ] Move interfaces to Core package
 - [x] in-memory and database storage
 - [x] Unit tests
 - [x] Implement a Swagger
 - [x] API of create a comment
 - [x] Implement a Docker
 - [x] Implement a Docker Compose
-- [ ] Implement middleware to inject the user on request
+- [x] Implement middleware to inject the user on request
+- [x] Implement a Auth Exception Handler
 - [ ] Implement errors handler cases on testimonial create, update and delete
-- [ ] Implement a Auth Exception Handler
+- [ ] Move interfaces to Core package
 - [ ] Implement a Global Exception Handler
 - [ ] Implement a Logger
 - [ ] Implement a Cache ( redis )
