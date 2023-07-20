@@ -4,18 +4,16 @@
   "implicitDependencies": ["flights-e2e"],
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "command": "node --test",
       "options": {
-        "jestConfig": "apps/flights-e2e/jest.config.ts",
-        "passWithNoTests": true
+        "cwd": "apps/flights-e2e"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/flights-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/flights-e2e/**/*.{js,mjs}"]
       }
     }
   }

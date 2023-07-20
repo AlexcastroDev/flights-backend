@@ -30,7 +30,7 @@ services:
       - .:/usr/src/app
       - shared_modules:/usr/src/app/node_modules
     command: npm run test:ci
-  api_development:
+  api_dev:
     depends_on:
       postgres:
         condition: service_healthy
