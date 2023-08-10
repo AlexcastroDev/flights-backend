@@ -1,0 +1,9 @@
+type Testimonial {
+  id: ID!
+  comment: String!
+  user_id: ID!
+}
+
+type Query {
+  testimonials: [Testimonial]
+}

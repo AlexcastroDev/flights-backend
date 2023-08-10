@@ -6,8 +6,6 @@ import {
   Param,
   Post,
   Put,
-  Req,
-  Res,
 } from '@nestjs/common';
 import { Testimonial, TestimonialsService } from './testimonials.service';
 
