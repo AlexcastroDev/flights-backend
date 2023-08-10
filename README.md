@@ -59,3 +59,7 @@ docker run -it --rm -v "$(pwd)":/usr/src/app -w /usr/src/app node:18 npm install
 - Cannot use 2 databases in Prisma yet:
   https://github.com/prisma/prisma/issues/2443
   https://github.com/prisma/prisma/issues/11129
+
+- GraphQL
+
+https://github.dev/nestjs/nest/tree/master/sample/23-graphql-code-first
